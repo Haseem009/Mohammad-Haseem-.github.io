@@ -1,1 +1,210 @@
 # your-username.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numan Khalid Bhat | Chemical Engineering Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #212529;
+            --text-muted: #6c757d;
+            --accent-blue: #0056b3;
+            --border-color: #e9ecef;
+            --table-header: #f1f3f5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 5px 0;
+            color: var(--text-main);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin: 0 0 15px 0;
+        }
+
+        .contact-links a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: 500;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            color: var(--accent-blue);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e7f5ff;
+            color: #1971c2;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--table-header);
+            font-weight: 600;
+        }
+
+        .insight-list {
+            padding-left: 20px;
+        }
+
+        .insight-list li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 50px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Numan Khalid Bhat</h1>
+        <p class="subtitle">Chemical Engineering Student | Computational Catalysis & Process Modeling</p>
+        <div class="contact-links">
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="mailto:your.email@example.com">Email</a>
+        </div>
+    </header>
+
+    <div class="card">
+        <div>
+            <span class="tag">CATMAP</span>
+            <span class="tag">DFT Data</span>
+            <span class="tag">Electrocatalysis</span>
+            <span class="tag">Python</span>
+        </div>
+        
+        <h2>Microkinetic Modeling of Hydrogen Evolution Reaction (HER) via CATMAP</h2>
+        <p><em>National Institute of Technology Srinagar — Department of Chemical Engineering</em>[cite: 1]</p>
+
+        <p><strong>Executive Summary:</strong> Applied microkinetic modeling using the open-source CATMAP framework to screen electrocatalysts for the Hydrogen Evolution Reaction (HER) in acidic media[cite: 1]. Constructed activity volcano plots to validate the Sabatier principle, identifying Platinum (Pt) as the benchmark while evaluating non-precious alternatives like Molybdenum Disulfide ($\text{MoS}_2$) and Tungsten Carbide ($\text{WC}$) for low-cost green hydrogen production[cite: 1].</p>
+
+        <h3>Key Screening Results</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Catalyst Material</th>
+                    <th>$\Delta G_{\text{H}^*}$ (eV)[cite: 1]</th>
+                    <th>$H_2$ Rate (mol/s)[cite: 1]</th>
+                    <th>Coverage ($\theta_\text{H}$)[cite: 1]</th>
+                    <th>Primary Kinetic Bottleneck[cite: 1]</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Platinum (Pt)</strong></td>
+                    <td>-0.02</td>
+                    <td>$8.19 \times 10^{-4}$</td>
+                    <td>0.550</td>
+                    <td>Near-optimal adsorption/desorption balance[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td><strong>Palladium (Pd)</strong></td>
+                    <td>-0.05</td>
+                    <td>$6.07 \times 10^{-4}$</td>
+                    <td>0.622</td>
+                    <td>Slight desorption limitation[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td><strong>Nickel (Ni)</strong></td>
+                    <td>-0.15</td>
+                    <td>$2.23 \times 10^{-4}$</td>
+                    <td>0.818</td>
+                    <td>Sluggish Tafel/Heyrovsky product desorption[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td><strong>Gold (Au)</strong></td>
+                    <td>+0.35</td>
+                    <td>$3.02 \times 10^{-5}$</td>
+                    <td>0.029</td>
+                    <td>Inefficient Volmer proton adsorption[cite: 1]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Engineering Insights</h3>
+        <ul class="insight-list">
+            <li><strong>Sabatier Validation:</strong> Peak catalytic activity is achieved when hydrogen adsorption free energy ($\Delta G_{\text{H}^*}$) is near 0 eV, maintaining intermediate surface coverage ($\theta_\text{H} \approx 0.2\text{--}0.8\text{ ML}$)[cite: 1].</li>
+            <li><strong>Mechanistic Shifts:</strong> Strong binders ($\Delta G_{\text{H}^*} < 0$) are limited by product desorption, whereas weak binders ($\Delta G_{\text{H}^*} > 0$) are bottlenecked by the initial Volmer adsorption step[cite: 1].</li>
+            <li><strong>Non-Precious Alternatives:</strong> Identified $\text{MoS}_2$ ($\Delta G_{\text{H}^*} = -0.15\text{ eV}$) as a high-performing non-precious candidate suitable for industrial-scale electrolyzers[cite: 1].</li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    © 2026 Numan Khalid Bhat • Built with HTML/CSS • Hosted on GitHub Pages
+</footer>
+
+</body>
+</html>
