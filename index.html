@@ -11,6 +11,7 @@
             --text-main: #212529;
             --text-muted: #6c757d;
             --accent-blue: #0056b3;
+            --accent-light: #e7f5ff;
             --border-color: #e9ecef;
             --table-header: #f1f3f5;
         }
@@ -25,7 +26,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -37,22 +38,23 @@
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin: 0 0 5px 0;
             color: var(--text-main);
         }
 
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
             margin: 0 0 15px 0;
+            font-weight: 500;
         }
 
         .contact-links a {
             color: var(--accent-blue);
             text-decoration: none;
-            margin-right: 15px;
-            font-weight: 500;
+            margin-right: 18px;
+            font-weight: 600;
         }
 
         .contact-links a:hover {
@@ -72,20 +74,62 @@
             font-size: 1.4rem;
             margin-top: 0;
             color: var(--accent-blue);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: var(--text-main);
         }
 
         .tag {
             display: inline-block;
-            background: #e7f5ff;
+            background: var(--accent-light);
             color: #1971c2;
             padding: 3px 10px;
             border-radius: 4px;
             font-size: 0.85rem;
             font-weight: 600;
-            margin-right: 5px;
+            margin-right: 6px;
             margin-bottom: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .job-org {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .job-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         table {
@@ -106,12 +150,32 @@
             font-weight: 600;
         }
 
-        .insight-list {
+        ul {
             padding-left: 20px;
+            margin-top: 5px;
         }
 
-        .insight-list li {
-            margin-bottom: 8px;
+        li {
+            margin-bottom: 6px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-box {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-box strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--accent-blue);
         }
 
         footer {
@@ -128,14 +192,36 @@
 <div class="container">
     <header>
         <h1>Mohammad Haseem Shabir</h1>
-        <p class="subtitle">Chemical Engineering Student | Computational Catalysis & Process Modeling</p>
+        <p class="subtitle">B.Tech in Chemical Engineering | National Institute of Technology Srinagar</p>
         <div class="contact-links">
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="mailto:2023nitsgr016@nitsri.ac.in">2023nitsgr016@nitsri.ac.in</a>
+            <a href="tel:+918899789606">+91-8899789606</a>
             <a href="https://github.com/Haseem009" target="_blank">GitHub</a>
-            <a href="mailto:your.email@example.com">Email</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <span>Srinagar, J&K, India</span>
         </div>
     </header>
 
+    <!-- TECHNICAL SKILLS -->
+    <div class="card">
+        <h2>Technical & Industrial Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <strong>Core Engineering</strong>
+                Process Design, Heat Transfer, Process Safety, Water & Wastewater Treatment
+            </div>
+            <div class="skill-box">
+                <strong>Software & Tools</strong>
+                DWSIM (Process Simulation), COMSOL Multiphysics (Basic), CATMAP, MS Excel, Python
+            </div>
+            <div class="skill-box">
+                <strong>Industrial Competencies</strong>
+                Industrial Safety Compliance, Process Automation, Water Quality Testing, Operations Management
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURED RESEARCH PROJECT -->
     <div class="card">
         <div>
             <span class="tag">CATMAP</span>
@@ -193,18 +279,159 @@
         </table>
 
         <h3>Engineering Insights</h3>
-        <ul class="insight-list">
+        <ul>
             <li><strong>Sabatier Validation:</strong> Peak catalytic activity is achieved when hydrogen adsorption free energy (ΔG<sub>H*</sub>) is near 0 eV, maintaining intermediate surface coverage (θ<sub>H</sub> ≈ 0.2–0.8 ML).</li>
             <li><strong>Mechanistic Shifts:</strong> Strong binders (ΔG<sub>H*</sub> &lt; 0) are limited by product desorption, whereas weak binders (ΔG<sub>H*</sub> &gt; 0) are bottlenecked by the initial Volmer adsorption step.</li>
             <li><strong>Non-Precious Alternatives:</strong> Identified MoS₂ (ΔG<sub>H*</sub> = -0.15 eV) as a high-performing non-precious candidate suitable for industrial-scale electrolyzers.</li>
         </ul>
     </div>
+
+    <!-- EXPERIENCE -->
+    <div class="card">
+        <h2>Professional & Industrial Experience</h2>
+        
+        <div class="timeline-item">
+            <div class="job-header">
+                <span class="job-title">Project Intern</span>
+                <span class="job-org">Hindustan Petroleum Corporation Limited (HPCL)</span>
+                <span class="job-date">Dec 2025 – Feb 2026</span>
+            </div>
+            <ul>
+                <li>Observed bulk LPG bottling and decantation plant operations, focusing on industrial gas handling and safety protocols.</li>
+                <li>Gained exposure to pressure control systems, emergency shut-off mechanisms, and hazardous material management.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="job-header">
+                <span class="job-title">Research Intern (Remote)</span>
+                <span class="job-org">Indian Institute of Technology (IIT) Ropar</span>
+                <span class="job-date">Dec 2024 – Mar 2025</span>
+            </div>
+            <ul>
+                <li>Simulated Water-Gas Shift (WGS) Reaction using DWSIM process simulator to optimize clean hydrogen yield.</li>
+                <li>Modeled chemical reaction kinetics and evaluated conversion efficiency across variable operating conditions.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="job-header">
+                <span class="job-title">Intern – Water & Air Quality Monitoring</span>
+                <span class="job-org">J&K Pollution Control Committee</span>
+                <span class="job-date">Jul 2025</span>
+            </div>
+            <ul>
+                <li>Analyzed ambient air parameters (PM<sub>10</sub>, PM<sub>2.5</sub>, SO<sub>2</sub>, NO<sub>2</sub>) and water quality indices in laboratory settings.</li>
+                <li>Evaluated operational mechanisms of municipal sewage treatment plants using SBR, ASP, and FAB technologies.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="job-header">
+                <span class="job-title">Intern</span>
+                <span class="job-org">State Water Testing Lab, PHE Dept Jal Shakti</span>
+                <span class="job-date">Jan 2025</span>
+            </div>
+            <ul>
+                <li>Studied full-scale water purification units including coagulation, sedimentation, and filtration adhering to BIS IS 10500 standards.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="job-header">
+                <span class="job-title">Business Development Intern</span>
+                <span class="job-org">Kashmkari</span>
+                <span class="job-date">Jun 2026 – Aug 2026</span>
+            </div>
+            <ul>
+                <li>Managed client engagement and market expansion strategies for startup operations.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="job-header">
+                <span class="job-title">Marketing Manager (Part-time)</span>
+                <span class="job-org">Internkaar</span>
+                <span class="job-date">Aug 2024 – Aug 2025</span>
+            </div>
+            <ul>
+                <li>Led digital outreach campaigns to increase student onboarding for technical training programs.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ENGINEERING PROJECTS -->
+    <div class="card">
+        <h2>Engineering Projects</h2>
+
+        <div class="timeline-item">
+            <div class="job-header">
+                <span class="job-title">LPG Decanting Automation & Safety System</span>
+                <span class="job-org">HPCL</span>
+                <span class="job-date">Dec 2025 – Feb 2026</span>
+            </div>
+            <ul>
+                <li>Designed an automated solution for LPG tank truck loading and decanting operations to reduce manual exposure.</li>
+                <li>Incorporated safety interlocks, pressure threshold monitoring, and emergency shut-off controls for hazardous gas handling.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="job-header">
+                <span class="job-title">Drowning Detection System</span>
+                <span class="job-org">Sensors & Thermal Principles</span>
+                <span class="job-date">2026</span>
+            </div>
+            <ul>
+                <li>Developing a real-time drowning detection system applying sensor technology and heat transfer fundamentals.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="job-header">
+                <span class="job-title">Groundwater Quality Assessment</span>
+                <span class="job-org">Water Analysis (BIS IS 10500)</span>
+                <span class="job-date">Jul 2025</span>
+            </div>
+            <ul>
+                <li>Tested 9 physicochemical water parameters; benchmarked against standard limits and identified elevated iron/ammonia levels.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="job-header">
+                <span class="job-title">All-Weather Agro Unit</span>
+                <span class="job-org">Biogas Energy & Thermal Insulation</span>
+                <span class="job-date">2025</span>
+            </div>
+            <ul>
+                <li>Conceptualized a biogas-powered agro-unit for cold regions; presented project at a BIS-hosted symposium at SKICC.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- LEADERSHIP & CERTIFICATIONS -->
+    <div class="card">
+        <h2>Leadership & Certifications</h2>
+        
+        <h3>Leadership Roles</h3>
+        <ul>
+            <li><strong>Campus Recruitment Coordinator (Promoted):</strong> Department of Chemical Engineering, NIT Srinagar (May 2026 – Present). Leading departmental campus recruitment drives, industry outreach, and corporate partnerships.</li>
+            <li><strong>Campus Internship Coordinator:</strong> Department of Chemical Engineering, NIT Srinagar (Aug 2025 – May 2026). Facilitated student internship placements and coordinated engagement with industrial partners.</li>
+        </ul>
+
+        <h3>Certifications & Extra-Curriculars</h3>
+        <ul>
+            <li><strong>Certifications:</strong> Agile Management (HP LIFE), Recent Trends in Nanotechnology (IIT Delhi), Business Analysis.</li>
+            <li><strong>Activities & Leadership:</strong> TEDx Team Lead, Code Clash Logistics Lead, Outreach Member (Tech Vaganza, Range Chinar), BIS Event Anchor.</li>
+        </ul>
+    </div>
+
 </div>
 
 <footer>
-    © 2026 Mohammad Haseem Shabir • Built with HTML/CSS • Hosted on GitHub Pages
+    © 2026 Mohammad Haseem Shabir • NIT Srinagar Chemical Engineering • Hosted on GitHub Pages
 </footer>
 
 </body>
 </html>
-
