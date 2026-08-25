@@ -7,7 +7,7 @@
     <style>
         :root {
             --bg-dark: #0d0f12;
-            --card-dark: #15181e;
+            --card-dark: rgba(21, 24, 30, 0.85);
             --border-dark: #232730;
             --text-white: #f1f3f5;
             --text-muted: #909296;
@@ -31,6 +31,19 @@
             width: 100%;
         }
 
+        /* BACKGROUND PROCESS CANVAS (DISTILLATION -> HEX -> CSTR -> PBR) */
+        .background-process-engine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.18; /* Subtle background footprint */
+            overflow: hidden;
+        }
+
         /* NAVIGATION - MOBILE RESPONSIVE */
         nav {
             display: flex;
@@ -38,7 +51,7 @@
             align-items: center;
             padding: 16px 5%;
             border-bottom: 1px solid var(--border-dark);
-            background: rgba(13, 15, 18, 0.95);
+            background: rgba(13, 15, 18, 0.9);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -108,14 +121,22 @@
             100% { opacity: 0.4; }
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION WITH RELATIVE CONTAINER FOR BACKGROUND ENGINE */
         .hero {
-            padding: 40px 5%;
+            position: relative;
+            padding: 60px 5%;
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
             align-items: center;
             border-bottom: 1px solid var(--border-dark);
+            background: radial-gradient(circle at 50% 50%, rgba(92, 221, 107, 0.03) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
         }
 
         .hero-profile-wrap {
@@ -144,7 +165,7 @@
         }
 
         .hero-headline {
-            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 16px;
@@ -158,29 +179,14 @@
 
         .hero-bio {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 24px;
         }
 
-        /* BACKGROUND CONTINUOUS PROCESS SIMULATION ENGINE */
-        .plant-canvas-container {
-            background: var(--card-dark);
-            border: 1px solid var(--border-dark);
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            width: 100%;
-        }
-
-        .svg-holder {
-            width: 100%;
-            height: auto;
-        }
-
-        /* DYNAMIC CONTINUOUS ANIMATIONS */
+        /* BACKGROUND ANIMATIONS */
         .gear {
             animation: spin 5s linear infinite;
-            transform-origin: 220px 45px;
+            transform-origin: 520px 100px;
         }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
@@ -189,16 +195,15 @@
         }
         @keyframes rise {
             0% { transform: translateY(0); opacity: 0.9; }
-            100% { transform: translateY(-70px); opacity: 0; }
+            100% { transform: translateY(-120px); opacity: 0; }
         }
 
         .impeller {
-            animation: rotateImpeller 1s linear infinite;
-            transform-origin: 220px 125px;
+            animation: rotateImpeller 1.2s linear infinite;
+            transform-origin: 520px 220px;
         }
         @keyframes rotateImpeller { 100% { transform: rotate(360deg); } }
 
-        /* FLUID STREAM ANIMATION RUNNING ACROSS ALL UNITS */
         .flow-line {
             stroke-dasharray: 6 4;
             animation: flowMove 0.8s linear infinite;
@@ -207,18 +212,12 @@
             to { stroke-dashoffset: -20; }
         }
 
-        .hot-stream {
-            stroke: #ff6b6b;
-        }
-
-        .cold-stream {
-            stroke: #4dabf7;
-        }
-
         /* SECTIONS & GRIDS */
         .section {
             padding: 50px 5%;
             border-bottom: 1px solid var(--border-dark);
+            position: relative;
+            z-index: 2;
         }
 
         .section-header {
@@ -251,6 +250,7 @@
             border: 1px solid var(--border-dark);
             border-radius: 10px;
             padding: 24px;
+            backdrop-filter: blur(6px);
             transition: all 0.3s ease;
         }
 
@@ -344,6 +344,8 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.8rem;
+            position: relative;
+            z-index: 2;
         }
 
         /* DESKTOP BREAKPOINTS (800px and up) */
@@ -357,9 +359,7 @@
                 padding-bottom: 0;
             }
             .hero {
-                padding: 70px 8%;
-                grid-template-columns: 1.1fr 0.9fr;
-                gap: 40px;
+                padding: 90px 8%;
             }
             .section {
                 padding: 70px 8%;
@@ -393,7 +393,83 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div>
+        
+        <!-- SUBTLE BACKGROUND CHEMICAL PLANT SCHEMATIC (CONTINUOUS FLOW) -->
+        <div class="background-process-engine">
+            <svg width="100%" height="100%" viewBox="0 0 1000 350" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                
+                <!-- BACKGROUND GRID PATTERN -->
+                <defs>
+                    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#232730" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="1000" height="350" fill="url(#grid)" />
+
+                <!-- 1. DISTILLATION COLUMN (DS-101) -->
+                <rect x="50" y="50" width="80" height="250" rx="35" stroke="#5cdd6b" stroke-width="2" fill="none"/>
+                <!-- Internal Trays -->
+                <line x1="50" y1="100" x2="130" y2="100" stroke="#5cdd6b" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <line x1="50" y1="150" x2="130" y2="150" stroke="#5cdd6b" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <line x1="50" y1="200" x2="130" y2="200" stroke="#5cdd6b" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <line x1="50" y1="250" x2="130" y2="250" stroke="#5cdd6b" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <text x="55" y="40" fill="#5cdd6b" font-size="12" font-weight="bold">DS-101 (DISTILLATION)</text>
+                
+                <!-- Vapor Bubbles -->
+                <circle class="bubble" cx="80" cy="270" r="4" fill="#5cdd6b"/>
+                <circle class="bubble" cx="105" cy="240" r="3" fill="#5cdd6b" style="animation-delay: 0.7s;"/>
+
+                <!-- OVERHEAD VAPOR PIPELINE -->
+                <path d="M 90 50 L 90 20 L 260 20 L 260 80" stroke="#5cdd6b" stroke-width="2" class="flow-line"/>
+
+                <!-- 2. HEAT EXCHANGER (HX-101) -->
+                <rect x="220" y="80" width="80" height="130" rx="10" stroke="#5cdd6b" stroke-width="2" fill="none"/>
+                <!-- Tubes inside exchanger -->
+                <line x1="240" y1="80" x2="240" y2="210" stroke="#5cdd6b" stroke-width="1.5"/>
+                <line x1="260" y1="80" x2="260" y2="210" stroke="#5cdd6b" stroke-width="1.5"/>
+                <line x1="280" y1="80" x2="280" y2="210" stroke="#5cdd6b" stroke-width="1.5"/>
+                <!-- Cooling Shell line -->
+                <path d="M 200 145 L 320 145" stroke="#4dabf7" stroke-width="2" class="flow-line"/>
+                <text x="225" y="72" fill="#5cdd6b" font-size="12" font-weight="bold">HX-101 (SHELL & TUBE)</text>
+
+                <!-- CONDENSED LIQUID PIPELINE -->
+                <path d="M 260 210 L 260 230 L 440 230" stroke="#5cdd6b" stroke-width="2" class="flow-line"/>
+
+                <!-- 3. CSTR REACTOR (R-101) -->
+                <rect x="440" y="100" width="160" height="170" rx="15" stroke="#5cdd6b" stroke-width="2" fill="none"/>
+                <text x="475" y="90" fill="#5cdd6b" font-size="12" font-weight="bold">R-101 (CSTR)</text>
+                <!-- Shaft & Impeller -->
+                <line x1="520" y1="60" x2="520" y2="230" stroke="#5cdd6b" stroke-width="2"/>
+                <g class="impeller">
+                    <rect x="475" y="215" width="90" height="8" rx="4" fill="#5cdd6b"/>
+                </g>
+                <!-- Motor Gear Top -->
+                <g class="gear">
+                    <circle cx="520" cy="60" r="14" stroke="#5cdd6b" stroke-width="2" stroke-dasharray="5 3"/>
+                </g>
+
+                <!-- INTER-REACTOR PIPELINE -->
+                <path d="M 600 185 L 750 185" stroke="#5cdd6b" stroke-width="2" class="flow-line"/>
+
+                <!-- 4. PACKED BED REACTOR / PBR (R-102) -->
+                <rect x="750" y="70" width="100" height="210" rx="12" stroke="#5cdd6b" stroke-width="2" fill="none"/>
+                <text x="760" y="58" fill="#5cdd6b" font-size="12" font-weight="bold">R-102 (PBR)</text>
+                <!-- Catalyst Beds -->
+                <circle cx="780" cy="110" r="6" fill="#5cdd6b"/>
+                <circle cx="820" cy="130" r="6" fill="#5cdd6b"/>
+                <circle cx="790" cy="170" r="6" fill="#5cdd6b"/>
+                <circle cx="825" cy="200" r="6" fill="#5cdd6b"/>
+                <circle cx="785" cy="235" r="6" fill="#5cdd6b"/>
+
+                <!-- OUTLET EFFLUENT LINE -->
+                <path d="M 850 185 L 980 185" stroke="#ff6b6b" stroke-width="2.5" class="flow-line"/>
+                <polygon points="975,180 987,185 975,190" fill="#ff6b6b"/>
+
+            </svg>
+        </div>
+
+        <!-- HERO TEXT OVERLAY -->
+        <div class="hero-content">
             <div class="hero-profile-wrap">
                 <img src="profile.jpeg" alt="Mohammad Haseem Shabir" class="profile-img" onerror="this.src='https://via.placeholder.com/90/15181e/5cdd6b?text=MH'">
                 <div>
@@ -409,78 +485,6 @@
             <div class="skills-wrap">
                 <span class="skill-pill">📧 2023nitsgr016@nitsri.ac.in</span>
                 <span class="skill-pill">📍 Srinagar, India</span>
-            </div>
-        </div>
-
-        <!-- FULL BACKGROUND INTEGRATED PROCESS PLANT (DISTILLATION -> HEX -> CSTR -> PBR) -->
-        <div class="plant-canvas-container">
-            <div style="font-size: 0.75rem; color: var(--accent-lime-bright); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; text-align: center; font-weight: bold;">
-                ⚡ Continuous Process Loop (DS-101 $\rightarrow$ HX-101 $\rightarrow$ R-101 CSTR $\rightarrow$ R-102 PBR)
-            </div>
-
-            <div class="svg-holder">
-                <svg width="100%" height="100%" viewBox="0 0 440 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    
-                    <!-- 1. DISTILLATION COLUMN (DS-101) -->
-                    <rect x="15" y="25" width="40" height="150" rx="18" stroke="#b2f2bb" stroke-width="2" fill="#15181e"/>
-                    <line x1="15" y1="60" x2="55" y2="60" stroke="#232730" stroke-width="1.5"/>
-                    <line x1="15" y1="90" x2="55" y2="90" stroke="#232730" stroke-width="1.5"/>
-                    <line x1="15" y1="120" x2="55" y2="120" stroke="#232730" stroke-width="1.5"/>
-                    <text x="18" y="16" fill="#909296" font-size="8" font-weight="bold">DS-101</text>
-                    
-                    <!-- VAPOR BUBBLES -->
-                    <circle class="bubble" cx="28" cy="150" r="2" fill="#5cdd6b"/>
-                    <circle class="bubble" cx="42" cy="130" r="1.8" fill="#5cdd6b" style="animation-delay: 0.6s;"/>
-
-                    <!-- PIPE DS-101 TO HEAT EXCHANGER (VAPOR STREAM) -->
-                    <path d="M 35 25 L 35 10 L 105 10 L 105 45" stroke="#5cdd6b" stroke-width="1.8" class="flow-line"/>
-
-                    <!-- 2. SHELL & TUBE HEAT EXCHANGER (HX-101) -->
-                    <rect x="85" y="45" width="40" height="65" rx="6" stroke="#b2f2bb" stroke-width="1.8" fill="#15181e"/>
-                    <!-- INTERNAL TUBES -->
-                    <path d="M 92 45 L 92 110 M 105 45 L 105 110 M 118 45 L 118 110" stroke="#232730" stroke-width="1.5"/>
-                    <!-- COOLING FLUID LINE -->
-                    <path d="M 75 75 L 135 75" stroke="#4dabf7" stroke-width="1.5" class="flow-line cold-stream"/>
-                    <text x="88" y="38" fill="#909296" font-size="8" font-weight="bold">HX-101</text>
-
-                    <!-- PIPE HX-101 TO CSTR (CONDENSED LIQUID) -->
-                    <path d="M 105 110 L 105 130 L 180 130" stroke="#5cdd6b" stroke-width="1.8" class="flow-line"/>
-
-                    <!-- 3. CSTR REACTOR (R-101) -->
-                    <rect x="180" y="65" width="80" height="90" rx="8" stroke="#b2f2bb" stroke-width="2" fill="#15181e"/>
-                    <text x="202" y="56" fill="#5cdd6b" font-size="8" font-weight="bold">R-101 (CSTR)</text>
-                    <line x1="220" y1="45" x2="220" y2="135" stroke="#909296" stroke-width="2"/>
-                    <!-- ROTATING IMPELLER -->
-                    <g class="impeller">
-                        <rect x="202" y="125" width="36" height="5" rx="2" fill="#5cdd6b"/>
-                    </g>
-                    <!-- MOTOR GEAR -->
-                    <g class="gear">
-                        <circle cx="220" cy="45" r="8" stroke="#5cdd6b" stroke-width="1.5" stroke-dasharray="3 2"/>
-                    </g>
-
-                    <!-- PIPE CSTR TO PBR (REACTOR INTER-STREAM) -->
-                    <path d="M 260 110 L 320 110" stroke="#5cdd6b" stroke-width="1.8" class="flow-line"/>
-
-                    <!-- 4. PACKED BED REACTOR / PBR (R-102) -->
-                    <rect x="320" y="55" width="55" height="110" rx="6" stroke="#b2f2bb" stroke-width="2" fill="#15181e"/>
-                    <text x="328" y="46" fill="#909296" font-size="8" font-weight="bold">R-102 (PBR)</text>
-                    <!-- CATALYST PELLETS -->
-                    <circle cx="335" cy="80" r="3.5" fill="#909296"/>
-                    <circle cx="355" cy="90" r="3.5" fill="#909296"/>
-                    <circle cx="340" cy="115" r="3.5" fill="#909296"/>
-                    <circle cx="360" cy="130" r="3.5" fill="#909296"/>
-                    <circle cx="338" cy="145" r="3.5" fill="#909296"/>
-
-                    <!-- PRODUCT EFFLUENT PIPELINE -->
-                    <path d="M 375 110 L 425 110" stroke="#5cdd6b" stroke-width="2" class="flow-line hot-stream"/>
-                    <polygon points="420,106 428,110 420,114" fill="#ff6b6b"/>
-                    <text x="382" y="102" fill="#ff6b6b" font-size="7" font-weight="bold">PRODUCT</text>
-
-                </svg>
-            </div>
-            <div style="font-size: 0.72rem; color: var(--text-muted); text-align: center; margin-top: 6px;">
-                <strong>Live Plant Flow:</strong> Overhead vapor from <em>DS-101</em> condenses in <em>HX-101</em>, feeds liquid-phase CSTR <em>R-101</em>, and finishes through heterogeneous catalyst <em>R-102 PBR</em>.
             </div>
         </div>
     </section>
@@ -654,3 +658,4 @@
 
 </body>
 </html>
+
