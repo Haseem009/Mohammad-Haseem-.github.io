@@ -40,7 +40,7 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.18; /* Subtle background footprint */
+            opacity: 0.18;
             overflow: hidden;
         }
 
@@ -121,7 +121,7 @@
             100% { opacity: 0.4; }
         }
 
-        /* HERO SECTION WITH RELATIVE CONTAINER FOR BACKGROUND ENGINE */
+        /* HERO SECTION */
         .hero {
             position: relative;
             padding: 60px 5%;
@@ -292,7 +292,6 @@
             margin-bottom: 8px;
         }
 
-        /* RESPONSIVE TABLE CONTAINER */
         .table-responsive {
             width: 100%;
             overflow-x: auto;
@@ -348,7 +347,6 @@
             z-index: 2;
         }
 
-        /* DESKTOP BREAKPOINTS (800px and up) */
         @media (min-width: 800px) {
             nav {
                 padding: 20px 8%;
@@ -380,8 +378,9 @@
     <nav>
         <div class="logo">MH<span>.</span></div>
         <div class="nav-links">
+            <a href="#leadership">Leadership</a>
             <a href="#active">Active Work</a>
-            <a href="#hpcl">HPCL Plan</a>
+            <a href="#hpcl">HPCL & Public Sector</a>
             <a href="#projects">Simulations</a>
             <a href="#work">Experience</a>
             <a href="#skills">Skills</a>
@@ -394,11 +393,9 @@
     <!-- HERO SECTION -->
     <section class="hero">
         
-        <!-- SUBTLE BACKGROUND CHEMICAL PLANT SCHEMATIC (CONTINUOUS FLOW) -->
+        <!-- SUBTLE BACKGROUND PROCESS SCHEMATIC -->
         <div class="background-process-engine">
             <svg width="100%" height="100%" viewBox="0 0 1000 350" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                
-                <!-- BACKGROUND GRID PATTERN -->
                 <defs>
                     <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
                         <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#232730" stroke-width="0.5"/>
@@ -406,62 +403,51 @@
                 </defs>
                 <rect width="1000" height="350" fill="url(#grid)" />
 
-                <!-- 1. DISTILLATION COLUMN (DS-101) -->
+                <!-- 1. DISTILLATION COLUMN -->
                 <rect x="50" y="50" width="80" height="250" rx="35" stroke="#5cdd6b" stroke-width="2" fill="none"/>
-                <!-- Internal Trays -->
                 <line x1="50" y1="100" x2="130" y2="100" stroke="#5cdd6b" stroke-width="1.5" stroke-dasharray="4 2"/>
                 <line x1="50" y1="150" x2="130" y2="150" stroke="#5cdd6b" stroke-width="1.5" stroke-dasharray="4 2"/>
                 <line x1="50" y1="200" x2="130" y2="200" stroke="#5cdd6b" stroke-width="1.5" stroke-dasharray="4 2"/>
                 <line x1="50" y1="250" x2="130" y2="250" stroke="#5cdd6b" stroke-width="1.5" stroke-dasharray="4 2"/>
                 <text x="55" y="40" fill="#5cdd6b" font-size="12" font-weight="bold">DS-101 (DISTILLATION)</text>
                 
-                <!-- Vapor Bubbles -->
                 <circle class="bubble" cx="80" cy="270" r="4" fill="#5cdd6b"/>
                 <circle class="bubble" cx="105" cy="240" r="3" fill="#5cdd6b" style="animation-delay: 0.7s;"/>
 
-                <!-- OVERHEAD VAPOR PIPELINE -->
                 <path d="M 90 50 L 90 20 L 260 20 L 260 80" stroke="#5cdd6b" stroke-width="2" class="flow-line"/>
 
-                <!-- 2. HEAT EXCHANGER (HX-101) -->
+                <!-- 2. HEAT EXCHANGER -->
                 <rect x="220" y="80" width="80" height="130" rx="10" stroke="#5cdd6b" stroke-width="2" fill="none"/>
-                <!-- Tubes inside exchanger -->
                 <line x1="240" y1="80" x2="240" y2="210" stroke="#5cdd6b" stroke-width="1.5"/>
                 <line x1="260" y1="80" x2="260" y2="210" stroke="#5cdd6b" stroke-width="1.5"/>
                 <line x1="280" y1="80" x2="280" y2="210" stroke="#5cdd6b" stroke-width="1.5"/>
-                <!-- Cooling Shell line -->
                 <path d="M 200 145 L 320 145" stroke="#4dabf7" stroke-width="2" class="flow-line"/>
                 <text x="225" y="72" fill="#5cdd6b" font-size="12" font-weight="bold">HX-101 (SHELL & TUBE)</text>
 
-                <!-- CONDENSED LIQUID PIPELINE -->
                 <path d="M 260 210 L 260 230 L 440 230" stroke="#5cdd6b" stroke-width="2" class="flow-line"/>
 
-                <!-- 3. CSTR REACTOR (R-101) -->
+                <!-- 3. CSTR REACTOR -->
                 <rect x="440" y="100" width="160" height="170" rx="15" stroke="#5cdd6b" stroke-width="2" fill="none"/>
                 <text x="475" y="90" fill="#5cdd6b" font-size="12" font-weight="bold">R-101 (CSTR)</text>
-                <!-- Shaft & Impeller -->
                 <line x1="520" y1="60" x2="520" y2="230" stroke="#5cdd6b" stroke-width="2"/>
                 <g class="impeller">
                     <rect x="475" y="215" width="90" height="8" rx="4" fill="#5cdd6b"/>
                 </g>
-                <!-- Motor Gear Top -->
                 <g class="gear">
                     <circle cx="520" cy="60" r="14" stroke="#5cdd6b" stroke-width="2" stroke-dasharray="5 3"/>
                 </g>
 
-                <!-- INTER-REACTOR PIPELINE -->
                 <path d="M 600 185 L 750 185" stroke="#5cdd6b" stroke-width="2" class="flow-line"/>
 
-                <!-- 4. PACKED BED REACTOR / PBR (R-102) -->
+                <!-- 4. PACKED BED REACTOR -->
                 <rect x="750" y="70" width="100" height="210" rx="12" stroke="#5cdd6b" stroke-width="2" fill="none"/>
                 <text x="760" y="58" fill="#5cdd6b" font-size="12" font-weight="bold">R-102 (PBR)</text>
-                <!-- Catalyst Beds -->
                 <circle cx="780" cy="110" r="6" fill="#5cdd6b"/>
                 <circle cx="820" cy="130" r="6" fill="#5cdd6b"/>
                 <circle cx="790" cy="170" r="6" fill="#5cdd6b"/>
                 <circle cx="825" cy="200" r="6" fill="#5cdd6b"/>
                 <circle cx="785" cy="235" r="6" fill="#5cdd6b"/>
 
-                <!-- OUTLET EFFLUENT LINE -->
                 <path d="M 850 185 L 980 185" stroke="#ff6b6b" stroke-width="2.5" class="flow-line"/>
                 <polygon points="975,180 987,185 975,190" fill="#ff6b6b"/>
 
@@ -473,18 +459,52 @@
             <div class="hero-profile-wrap">
                 <img src="profile.jpeg" alt="Mohammad Haseem Shabir" class="profile-img" onerror="this.src='https://via.placeholder.com/90/15181e/5cdd6b?text=MH'">
                 <div>
-                    <div class="hero-tag">Chemical Engineer</div>
+                    <div class="hero-tag">Chemical Engineer & Campus Lead</div>
                     <h3 style="font-weight: 700;">Mohammad Haseem Shabir</h3>
                 </div>
             </div>
 
-            <h1 class="hero-headline">Designing industrial systems & <em>reaction kinetics.</em></h1>
+            <h1 class="hero-headline">Designing industrial systems & <em>driving student placement operations.</em></h1>
             <p class="hero-bio">
-                Chemical Engineering undergraduate at NIT Srinagar. Executing thermogravimetric kinetic research, microkinetic catalyst screening, and process plant automation.
+                Chemical Engineering undergraduate at NIT Srinagar. Combining reaction kinetics research and process plant automation with campus placement leadership across 800+ students.
             </p>
             <div class="skills-wrap">
                 <span class="skill-pill">📧 2023nitsgr016@nitsri.ac.in</span>
                 <span class="skill-pill">📍 Srinagar, India</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP & CAMPUS COORDINATION -->
+    <section class="section" id="leadership">
+        <div class="section-header">
+            <span class="section-label">Institutional Leadership</span>
+            <h2 class="section-title">Training & Placement Cell Operations</h2>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <span class="card-tag">Current Leadership</span>
+                <h3 class="card-title">Campus Recruitment Coordinator</h3>
+                <p class="card-desc">
+                    Managing end-to-end placement drives, corporate outreach, and recruiter logistics for the 800+ student cohort at NIT Srinagar.
+                </p>
+                <ul class="plan-list">
+                    <li>Directing student-recruiter operations for national & multinational recruiters.</li>
+                    <li>Managing schedule logistics, interview funnels, and real-time candidate pipelines.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Prior Leadership</span>
+                <h3 class="card-title">Campus Internship Coordinator</h3>
+                <p class="card-desc">
+                    Spearheaded pre-final year internship drives, interfacing with industry partners and standardizing onboarding protocols for the 800+ student body.
+                </p>
+                <ul class="plan-list">
+                    <li>Organized pre-placement training sessions, resume verifications, and drive execution.</li>
+                    <li>Maintained structural continuity across batch transitions from internships to full-time roles.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -515,26 +535,37 @@
         </div>
     </section>
 
-    <!-- HPCL DECANTATION AUTOMATION PROPOSAL -->
+    <!-- INDUSTRIAL PROPOSALS: HPCL & PUBLIC SECTOR -->
     <section class="section" id="hpcl">
         <div class="section-header">
-            <span class="section-label">Industrial Proposal</span>
-            <h2 class="section-title">HPCL LPG Decanting Automation</h2>
+            <span class="section-label">Industrial & Municipal Engineering</span>
+            <h2 class="section-title">Public Sector & Process Initiatives</h2>
         </div>
 
-        <div class="card">
-            <span class="card-tag">HPCL Pampore Plant • Safety Automation</span>
-            <h3 class="card-title">Automated Bulk LPG Decanting & ESDV Interlocks</h3>
-            <p class="card-desc">
-                Proposed control scheme during internship at HPCL Pampore Bottling Plant to eliminate human error and manual venting risks during tanker unloading.
-            </p>
+        <div class="grid-2">
+            <div class="card">
+                <span class="card-tag">HPCL Pampore Plant • Safety Automation</span>
+                <h3 class="card-title">Automated Bulk LPG Decanting & ESDV Interlocks</h3>
+                <p class="card-desc">
+                    Proposed control scheme during internship at HPCL Pampore Bottling Plant to eliminate human error and manual venting risks during tanker unloading.
+                </p>
+                <ul class="plan-list">
+                    <li><strong>Electro-Pneumatic ESDVs:</strong> Central PLC actuation on liquid/vapor lines.</li>
+                    <li><strong>DP Sensors & Purging:</strong> Automated hydrocarbon gas detection at >10% LEL.</li>
+                </ul>
+            </div>
 
-            <ul class="plan-list">
-                <li><strong>Electro-Pneumatic ESDVs:</strong> Central PLC actuation on liquid/vapor lines.</li>
-                <li><strong>Differential Pressure Sensors:</strong> Prevents cavitation and liquid backflow.</li>
-                <li><strong>Hydrocarbon Gas Detectors:</strong> Automated nitrogen purging at &gt;10% LEL.</li>
-                <li><strong>Earth Bonding Interlock:</strong> Prevents decanting until static earthing is confirmed.</li>
-            </ul>
+            <div class="card">
+                <span class="card-tag">Environmental & Public Health</span>
+                <h3 class="card-title">State PCB & Jal Shakti Compliance Studies</h3>
+                <p class="card-desc">
+                    Targeted research on environmental regulations (JKPCC) and municipal water supply infrastructure (Jal Shakti / PHE Department).
+                </p>
+                <ul class="plan-list">
+                    <li><strong>J&K Pollution Control Committee (JKPCC):</strong> Industrial effluent standards & bio-waste rules.</li>
+                    <li><strong>Jal Shakti (PHE):</strong> Water treatment design, regional distribution, and quality monitoring.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -638,10 +669,12 @@
     <section class="section" id="skills">
         <div class="section-header">
             <span class="section-label">Competencies</span>
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title">Technical & Leadership Skills</h2>
         </div>
 
         <div class="skills-wrap">
+            <span class="skill-pill">🤝 Placement Operations (800+ Cohort)</span>
+            <span class="skill-pill">🏛️ JKPCC & Jal Shakti Alignment</span>
             <span class="skill-pill">⚙️ P&ID & Process Automation</span>
             <span class="skill-pill">🔥 TGA Kinetic Analysis</span>
             <span class="skill-pill">🤖 AI Aquatic Safety Systems</span>
@@ -658,4 +691,3 @@
 
 </body>
 </html>
-
